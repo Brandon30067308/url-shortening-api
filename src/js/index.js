@@ -19,7 +19,11 @@ let copiedTimeoutId = null;
 
 const copyToClipboard = (e) => {
   copiedTimeoutId && clearTimeout(copiedTimeoutId);
-  document.querySelector(".copied")?.classList?.remove("copied");
+  const copied = document.querySelector(".copied");
+  if (copied) {
+    copied.classList.remove("copied");
+    copied.innerText = "Copy";
+  }
 
   const text = e.target.parentElement.children[0].innerText;
   copy(text);
