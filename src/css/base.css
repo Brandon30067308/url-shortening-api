@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --section-padding: 186px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  font-weight: 500;
+}
+
+.btn {
+  @apply flex items-center justify-center min-h-[60px] p-3;
+}
+
+.btn-primary {
+  @apply bg-primaryCyan text-base text-white transition-colors hover:bg-lightCyan;
+}
+
+.error {
+  @apply placeholder:text-red placeholder:text-opacity-60;
+}
+
+.loading {
+  @apply bg-opacity-80 pointer-events-none;
+}
+
+.error ~ .error-msg {
+  display: inline;
+}
+
+.copied {
+  @apply !bg-primaryViolet pointer-events-none;
+}
+
+.nav-link {
+  @apply font-medium text-grayishViolet cursor-pointer transition-colors hover:text-darkBlue;
+}
+
+.nav-toggler > span {
+  @apply h-[3px] w-full bg-grayishViolet rounded-[5rem];
+}
+
+.nav-mobile {
+  @apply absolute max-w-lg bg-primaryViolet flex md:hidden w-full min-h-[250px]
+  top-[100%] left-[50%] -translate-x-[50%] flex-col items-center justify-between
+  font-medium rounded-xl z-10 py-10 px-6;
+}
+
+.nav-link-mobile {
+  @apply font-medium text-white cursor-pointer;
+}
+
+.link-container {
+  @apply w-[90vw] h-[170px] sm:h-[90px] md:w-[82vw] flex flex-col sm:flex-row justify-center
+  sm:justify-between items-center bg-white rounded-lg mt-2 py-4;
+}
+
+.link-container > span::after {
+  @apply content-[''] block w-full absolute left-0 -bottom-2.5 sm:hidden border-lightBlue border-b-2;
+}
+
+.footer-link {
+  @apply text-grayishViolet text-base cursor-pointer tracking-wide font-medium
+  transition-colors hover:text-primaryCyan;
+}
+
+.socials a {
+  @apply text-white cursor-pointer transition-all hover:text-primaryCyan;
+}
+
+.feature-box {
+  @apply relative max-w-lg flex flex-col md:items-start items-center min-h-[265px] flex-[calc(1/3)]
+  bg-white rounded-lg shadow-[0px_0px_32px_-30px_rgba(0,0,0,0.3)] mb-[70px] md:mb-0;
+}
+
+.feature-box:last-child {
+  @apply mb-0;
+}
+
+.feature-box::after {
+  @apply content-[''] absolute right-[calc(50%-4px)] md:-right-6 top-full md:top-[calc(50%-4px)]
+  bg-primaryCyan w-2 md:w-6 h-8 md:h-2;
+}
+
+.feature-box:last-child::after {
+  @apply content-none;
+}
+
+/* font scaling */
+@media screen and (max-width: 640px) {
+  .text-base {
+    font-size: 14px;
+  }
+  .text-lg {
+    font-size: 16px;
+  }
+  .text-2xl {
+    font-size: 20px;
+  }
+  .text-4xl {
+    font-size: 26px;
+  }
+}

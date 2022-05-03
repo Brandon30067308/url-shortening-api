@@ -1,0 +1,9 @@
+*.sketch
+*.xd
+*.fig
+*.local
+.DS_Store
+public
+node_modules
+dist
+dist-ssr
