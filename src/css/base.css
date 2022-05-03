@@ -28,7 +28,7 @@
 }
 
 .loading {
-  @apply bg-opacity-80 pointer-events-none;
+  @apply !bg-primaryCyan !bg-opacity-80 pointer-events-none;
 }
 
 .error ~ .error-msg {

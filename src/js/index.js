@@ -106,15 +106,12 @@ shortenForm.addEventListener("submit", (e) => {
     const inputLink = input.value.trim();
     if (inputLink.length >= 1) {
       loading = true;
-      axios
-        .post(
-          getAPILink(inputLink),
-          {},
-          {
-            timeout: 25000,
-            timeoutErrorMessage: "Network Error",
-          }
-        )
+      axios({
+        method: "post",
+        url: getAPILink(inputLink),
+        timeout: 25000,
+        timeoutMessage: "Network Error"
+      })
         .then((res) => {
           stopLoading();
 
@@ -135,7 +132,6 @@ shortenForm.addEventListener("submit", (e) => {
             .forEach((b) => b.addEventListener("click", copyToClipboard));
         })
         .catch((err) => {
-          console.log("error: ", err);
           const error =
             (err?.response?.data && err?.response?.status === 400
               ? "Please enter a valid URL"
