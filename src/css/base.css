@@ -16,7 +16,7 @@
 }
 
 .btn {
-  @apply flex items-center justify-center min-h-[60px] p-3;
+  @apply flex items-center justify-center min-h-[60px] outline-none p-3;
 }
 
 .btn-primary {

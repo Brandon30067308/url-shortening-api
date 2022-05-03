@@ -15,14 +15,18 @@ let loading = false;
 let formHeight = 172;
 let containerHeight = 90;
 let shortenedLinks = [];
+let copiedTimeoutId = null;
 
 const copyToClipboard = (e) => {
+  copiedTimeoutId && clearTimeout(copiedTimeoutId);
+  document.querySelector(".copied")?.classList?.remove("copied");
+
   const text = e.target.parentElement.children[0].innerText;
   copy(text);
 
   e.target.innerText = "Copied!";
   e.target.classList.add("copied");
-  setTimeout(() => {
+  copiedTimeoutId = setTimeout(() => {
     e.target.innerText = "Copy";
     e.target.classList.remove("copied");
   }, 2000);
@@ -110,9 +114,10 @@ shortenForm.addEventListener("submit", (e) => {
         method: "post",
         url: getAPILink(inputLink),
         timeout: 25000,
-        timeoutMessage: "Network Error"
+        timeoutMessage: "Network Error",
       })
         .then((res) => {
+          input.value = "";
           stopLoading();
 
           const shortened = res.data.result.short_link;
