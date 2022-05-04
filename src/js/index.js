@@ -118,7 +118,7 @@ shortenForm.addEventListener("submit", (e) => {
         method: "post",
         url: getAPILink(inputLink),
         timeout: 25000,
-        timeoutMessage: "Network Error",
+        timeoutErrorMessage: "Network Error",
       })
         .then((res) => {
           input.value = "";
